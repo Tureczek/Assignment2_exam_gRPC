@@ -21,13 +21,13 @@ message ExamGRpcResponse{
   int64 subjectId = 3;
   int64 studentId = 4;
   string date = 5;
-  string grade = 6;
+  int64 grade = 6;
 }
 
 // This defines our service for the target folder
 service ExamGRpcService{
   rpc getExamById(ExamGRpcRequest) returns (ExamGRpcResponse);
-  rpc findAllExam(google.protobuf.Empty) returns (stream ExamGRpcResponse);
+  rpc findByExamsPassed(google.protobuf.Empty) returns (stream ExamGRpcResponse);
 
 /*
   rpc createDepartment (Department) returns (Department) {};

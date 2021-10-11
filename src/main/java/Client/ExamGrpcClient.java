@@ -24,7 +24,6 @@ public class ExamGrpcClient {
         // Send it to the caller in an appropriate manner, in this case, a list.
         List<String> result = new ArrayList<>();
         result.add(examGRpcResponse.getDate());
-        result.add(examGRpcResponse.getGrade());
         return result;
     }
 

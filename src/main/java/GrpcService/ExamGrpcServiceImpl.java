@@ -52,4 +52,20 @@ public class ExamGrpcServiceImpl extends ExamGRpcServiceGrpc.ExamGRpcServiceImpl
 
         }
     }
+    public void findByExamsPassed(Empty request, StreamObserver<ExamGRpcResponse> responseObserver){
+        List<ExamGrpc> examGrpcs = examGrpcDao.findByExamsPassed();
+        System.out.println(examGrpcs.size() + examGrpcs.toString());
+        for (ExamGrpc current: examGrpcs) {
+            ExamGRpcResponse examGRpcResponse = ExamGRpcResponse.newBuilder()
+                    .setExamId(current.getExamId())
+                    .setTeacherId(current.getTeacherId()) //Using Getters from target folder
+                    .setSubjectId(current.getSubjectId()) //Using Getters from target folder
+                    .setStudentId(current.getStudentId())
+                    .setDate(current.getDate())
+                    .setGrade(current.getGrade())
+                    .build();
+            responseObserver.onNext(examGRpcResponse);
+        }
+        responseObserver.onCompleted();
+    }
 }

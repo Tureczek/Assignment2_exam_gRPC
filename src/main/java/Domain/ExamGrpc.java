@@ -20,5 +20,5 @@ public class ExamGrpc {
     private int subjectId;
     private int studentId;
     private String date;
-    private String grade;
+    private int grade;
 }
