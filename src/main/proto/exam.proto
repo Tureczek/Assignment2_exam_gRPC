@@ -7,6 +7,8 @@ package com.examApplication.stub.exam;
 // With this line, I am saying that create multiple classes rather than a single class
 option java_multiple_files = true;
 
+import "google/protobuf/empty.proto";
+
 // This is the request message where it takes an id to find data
 message ExamGRpcRequest{
   int64 examId = 1;
@@ -24,5 +26,14 @@ message ExamGRpcResponse{
 
 // This defines our service for the target folder
 service ExamGRpcService{
-  rpc getExamInfo(ExamGRpcRequest) returns (ExamGRpcResponse);
+  rpc getExamById(ExamGRpcRequest) returns (ExamGRpcResponse);
+  rpc findAllExam(google.protobuf.Empty) returns (stream ExamGRpcResponse);
+
+/*
+  rpc createDepartment (Department) returns (Department) {};
+  rpc updateDepartment (Department) returns (Department) {};
+  rpc findDepartmentsByFilter(DepartmentFilter) returns (DepartmentList) {};
+  rpc deleteDepartment(google.protobuf.Int64Value) returns (google.protobuf.Empty) {};
+  rpc findAllDepartments(google.protobuf.Empty) returns (stream Department) {};
+  rpc updateDepartmentsInBatch(stream Department) returns (stream Department){};*/
 }

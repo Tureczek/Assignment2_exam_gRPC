@@ -19,7 +19,7 @@ public class ExamGrpcClient {
         //Creating the request object
         ExamGRpcRequest examGRpcRequest = ExamGRpcRequest.newBuilder().setExamId(examId).build();
         // Getting Response back
-        ExamGRpcResponse examGRpcResponse = examGRpcServiceBlockingStub.getExamInfo(examGRpcRequest);
+        ExamGRpcResponse examGRpcResponse = examGRpcServiceBlockingStub.getExamById(examGRpcRequest);
 
         // Send it to the caller in an appropriate manner, in this case, a list.
         List<String> result = new ArrayList<>();
