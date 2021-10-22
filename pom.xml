@@ -13,7 +13,16 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+
+
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
         <!-- ....................................................................-->
         <!-- dependencies for gRPC-->
         <dependency>
@@ -91,6 +100,7 @@
                 </executions>
 
             </plugin>
+
 
 
             <plugin>
